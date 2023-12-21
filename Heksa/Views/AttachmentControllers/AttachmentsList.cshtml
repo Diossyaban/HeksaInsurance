@@ -1,0 +1,90 @@
+﻿@model X.PagedList.IPagedList<Heksa.Models.Attachment>
+
+<link href="~/css/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    Layout = "~/Views/Shared/Heksa_Layout.cshtml";
+}
+
+@if (!string.IsNullOrEmpty(TempData["SuccessMessage"] as string))
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="container-fluid px-4">
+    <div class="card my-4">
+        <div class="card-header">
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Attachments /</span> List</h4>
+            <a class="btn btn-primary" asp-action="Create" style="background-color: #0073fe;">
+                <span class="tf-icons bx bx-upload"></span>&nbsp; Upload New
+            </a>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <form asp-action="AttachmentsList" method="get">
+                        <div class="input-group mb-3">
+                            <input type="text" name="searchString" class="form-control" placeholder="Search...">
+                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive text-nowrap">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                <a asp-action="Attachments" asp-route-sortOrder="AttachmentId" asp-route-page="1">Attachment ID</a>
+                            </th>
+                            <th>
+                                <a asp-action="Attachments" asp-route-sortOrder="FileType" asp-route-page="1">File Type</a>
+                            </th>
+                            <th>
+                                <a asp-action="Attachments" asp-route-sortOrder="FileName" asp-route-page="1">File Name</a>
+                            </th>
+                            <th>
+                                <a asp-action="Attachments" asp-route-sortOrder="FilePath" asp-route-page="1">File Path</a>
+                            </th>
+                            <th>
+                                <a asp-action="Attachments" asp-route-sortOrder="CreateDate" asp-route-page="1">Create Date</a>
+                            </th>
+                            <th>
+                                <a asp-action="Attachments" asp-route-sortOrder="CreateBy" asp-route-page="1">Create By</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var attachment in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow"
+                                                data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="Details" asp-route-id="@attachment.AttachmentId"><i class="bx bx-link-alt me-1"></i>Details</a>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@attachment.AttachmentId</td>
+                                <td>@attachment.FileType</td>
+                                <td>@attachment.FileName</td>
+                                <td>@attachment.FilePath</td>
+                                <td>@attachment.CreateDate</td>
+                                <td>@attachment.CreateBy</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
