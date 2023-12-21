@@ -1,0 +1,119 @@
+﻿@model Heksa.Models.Agen
+
+@{
+    ViewData["Title"] = "Create Agen";
+    Layout = "~/Views/Shared/Heksa_Layout.cshtml";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pension/</span> Create Agen</h4>
+<div class="card mb-4">
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div class="mb-3 row">
+                <label asp-for="Id" class="col-md-2 col-form-label">
+                    ID
+                </label>
+                <div class="col-md-4">
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <label asp-for="RegStatus" class="col-md-2 col-form-label">
+                    Reg Status
+                </label>
+                <div class="col-md-4">
+                    <input asp-for="RegStatus" class="form-control" />
+                    <span asp-validation-for="RegStatus" class="text-danger"></span>
+                </div>
+            </div>
+
+     
+
+            <div class="mb-3 row">
+                <label asp-for="Name" class="col-md-2 col-form-label">Name</label>
+                <div class="col-md-4">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <label asp-for="Gender" class="col-md-2 col-form-label">Gender</label>
+                <div class="col-md-4">
+                    <input asp-for="Gender" class="form-control" />
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+            <div class="mb-3 row">
+                <label asp-for="BirthPlace" class="col-md-2 col-form-label">Birth Place</label>
+                <div class="col-md-4">
+                    <input asp-for="BirthPlace" class="form-control" />
+                    <span asp-validation-for="BirthPlace" class="text-danger"></span>
+                </div>
+                <label asp-for="BirthDate" class="col-md-2 col-form-label">Birth Date</label>
+                <div class="col-md-4">
+                    <input asp-for="BirthDate" class="form-control" type="date" />
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
+            </div>
+
+      
+
+            <div class="mb-3 row">
+                <label asp-for="Address" class="col-md-2 col-form-label">Address</label>
+                <div class="col-md-4">
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <label asp-for="Email" class="col-md-2 col-form-label">Email</label>
+                <div class="col-md-4">
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+      
+
+            <div class="mb-3 row">
+                <label asp-for="Phone" class="col-md-2 col-form-label">Phone</label>
+                <div class="col-md-4">
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <label asp-for="IdCard" class="col-md-2 col-form-label">ID Card</label>
+                <div class="col-md-4">
+                    <input asp-for="IdCard" class="form-control" />
+                    <span asp-validation-for="IdCard" class="text-danger"></span>
+                </div>
+            </div>
+
+      
+
+
+            <div class="mb-3 row">
+                <label asp-for="CreateDate" class="col-md-2 col-form-label">Create Date</label>
+                <div class="col-md-4">
+                    <input asp-for="CreateDate" class="form-control" type="date" />
+                    <span asp-validation-for="CreateDate" class="text-danger"></span>
+                </div>
+
+                <label asp-for="CreateBy" class="col-md-2 col-form-label">Create By</label>
+                <div class="col-md-4">
+                    <input asp-for="CreateBy" class="form-control" />
+                    <span asp-validation-for="CreateBy" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary" style="background-color: #0073fe">Submit</button>
+            <a asp-action="AgenList" style="background-color: #fd0017" class="btn btn-secondary">Back</a>
+
+
+        </form>
+
+
+
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@* @model Heksa.Models.LoginViewModel
+
+@{
+    Layout = "_AutLayout";
+}
+
+<div>
+    <p class="text-center mb-4">
+        Heksa Insurance
+    </p>
+
+    <form class="mb-3" asp-action="Login" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="mb-3">
+            <label asp-for="Username" class="form-label">USER ID </label>
+            <input asp-for="Username" value="diossyaban" class="form-control" placeholder="Enter your USER ID" autofocus>
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="mb-3 form-password-toggle">
+            <div class="d-flex justify-content-between">
+                <label asp-for="Password" class="form-label">Password</label>
+            </div>
+            <div class="input-group input-group-merge">
+                <input type="password" id="Password" value="Diossyaban17" class="form-control" asp-for="Password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary d-grid w-100" type="submit">LOGIN</button>
+        </div>
+
+        <p class="text-center">
+            <span>New on our platform?</span>
+            <a asp-controller="Account" asp-action="Register">
+                <span>Create an account</span>
+            </a>
+        </p>
+    </form>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+ *@

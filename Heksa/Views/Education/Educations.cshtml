@@ -1,0 +1,110 @@
+﻿@model X.PagedList.IPagedList<Heksa.Models.Education>
+
+
+<link href="~/css/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    Layout = "~/Views/Shared/Heksa_Layout.cshtml";
+}
+
+@if (!string.IsNullOrEmpty(TempData["SuccessMessage"] as string))
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="container-fluid px-4">
+    <div class="card my-4">
+        <div class="card-header">
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Education  /</span>  List</h4>
+            <a class="btn btn-primary" asp-action="Create" style="background-color: #0073fe;">
+                <span class="tf-icons bx bx-book-add"></span>&nbsp; Create New
+            </a>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <form asp-action="Education" method="get">
+                        <div class="input-group mb-3">
+                            <input type="text" name="searchString" class="form-control" placeholder="Search...">
+                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive text-nowrap">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+
+                            </th>
+                            <th>
+                                <a asp-action="EducationList" asp-route-sortOrder="EducationId" asp-route-page="1">Education ID</a>
+                            </th>
+                            <th>
+                                <a asp-action="EducationList" asp-route-sortOrder="Strala" asp-route-page="1">Strala</a>
+                            </th>
+                            <th>
+                                <a asp-action="EducationList" asp-route-sortOrder="Institution" asp-route-page="1">Institution</a>
+                            </th>
+                            <th>
+                                <a asp-action="EducationList" asp-route-sortOrder="Major" asp-route-page="1">Major</a>
+                            </th>
+                            <th>
+                                <a asp-action="EducationList" asp-route-sortOrder="Gpa" asp-route-page="1">GPA</a>
+                            </th>
+                            <th>
+                                <a asp-action="EducationList" asp-route-sortOrder="StartDate" asp-route-page="1">Start Date</a>
+                            </th>
+                            <th>
+                                <a asp-action="EducationList" asp-route-sortOrder="EndDate" asp-route-page="1">End Date</a>
+                            </th>
+                            <th>
+                                <a asp-action="EducationList" asp-route-sortOrder="CreateDate" asp-route-page="1">Create Date</a>
+                            </th>
+                            <th>
+                                <a asp-action="EducationList" asp-route-sortOrder="CreateBy" asp-route-page="1">Create By</a>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var education in Model)
+                        {
+                            <tr>
+                                <td>
+
+                                    <div class="dropdown">
+                                        <button type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow"
+                                                data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="Details" asp-route-id="@education.EducationId"><i class="bx bx-link-alt me-1"></i>Details</a>
+
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td>@education.EducationId</td>
+                                <td>@education.Strala</td>
+                                <td>@education.Institution</td>
+                                <td>@education.Major</td>
+                                <td>@education.Gpa</td>
+                                <td>@education.StartDate</td>
+                                <td>@education.EndDate</td>
+                                <td>@education.CreateDate</td>
+                                <td>@education.CreateBy</td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+    
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Target Sum";
+    Layout = "~/Views/Shared/Heksa_Layout.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3 row">
+                <label for="numbers" class="col-md-2 col-form-label">Array:</label>
+                <div class="col-md-4">
+                    <input name="numbers" class="form-control" value="2,7,11,15" required />
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="target" class="col-md-2 col-form-label">Target:</label>
+                <div class="col-md-4">
+                    <input name="target" type="number" class="form-control" value="9" required />
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (ViewData["ResultIndices"] != null)
+{
+    <div class="mt-4">
+        <h3>Result:</h3>
+        @if (((int[])ViewData["ResultIndices"])[0] == -1)
+        {
+            <p class="text-danger">@ViewData["ResultDescription"]</p>
+        }
+        else
+        {
+            <p class="text-success">@ViewData["ResultDescription"]</p>
+        }
+    </div>
+}

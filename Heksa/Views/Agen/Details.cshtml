@@ -1,0 +1,68 @@
+﻿@model Heksa.Models.Agen
+
+@{
+    ViewData["Title"] = "Agen Details";
+    Layout = "~/Views/Shared/Heksa_Layout.cshtml";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Pension/</span> Agen Details</h4>
+<div class="card mb-4">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3">Reg Status</dt>
+            <dd class="col-sm-9">@Model.RegStatus</dd>
+
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@Model.Name</dd>
+
+            <dt class="col-sm-3">Gender</dt>
+            <dd class="col-sm-9">@Model.Gender</dd>
+
+            <dt class="col-sm-3">Birth Place</dt>
+            <dd class="col-sm-9">@Model.BirthPlace</dd>
+
+            <dt class="col-sm-3">Birth Date</dt>
+            <dd class="col-sm-9">
+                @if (Model.BirthDate.HasValue)
+                {
+                    @Model.BirthDate.Value.ToShortDateString()
+                }
+                else
+                {
+                    <span class="text-muted">Not specified</span>
+                }
+            </dd>
+            <dt class="col-sm-3">Address</dt>
+            <dd class="col-sm-9">@Model.Address</dd>
+
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+
+            <dt class="col-sm-3">Phone</dt>
+            <dd class="col-sm-9">@Model.Phone</dd>
+
+            <dt class="col-sm-3">ID Card</dt>
+            <dd class="col-sm-9">@Model.IdCard</dd>
+
+            <dt class="col-sm-3">Create Date</dt>
+            <dd class="col-sm-9">
+                @if (Model.CreateDate.HasValue)
+                {
+                    @Model.CreateDate.Value.ToShortDateString()
+                }
+                else
+                {
+                    <span class="text-muted">Not specified</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3">Create By</dt>
+            <dd class="col-sm-9">@Model.CreateBy</dd>
+        </dl>
+
+    
+    </div>
+</div>

@@ -1,0 +1,122 @@
+﻿@model X.PagedList.IPagedList<Heksa.Models.Agen>
+
+
+<link href="~/css/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    Layout = "~/Views/Shared/Heksa_Layout.cshtml";
+}
+
+@if (!string.IsNullOrEmpty(TempData["SuccessMessage"] as string))
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="container-fluid px-4">
+    <div class="card my-4">
+        <div class="card-header">
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">User  /</span>  List</h4>
+            <a class="btn btn-primary" asp-action="Create" style="background-color: #0073fe;">
+                <span class="tf-icons bx bx-book-add"></span>&nbsp; Create New
+            </a>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <form asp-action="AgenList" method="get">
+                        <div class="input-group mb-3">
+                            <input type="text" name="searchString" class="form-control" placeholder="Search...">
+                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive text-nowrap">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="Id" asp-route-page="1">ID</a>
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="RegistrationDate" asp-route-page="1">Registration Date</a>
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="RegistrationStatus" asp-route-page="1">Registration Status</a>
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="Name" asp-route-page="1">Name</a>
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="Gender" asp-route-page="1">Gender</a>
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="BirthPlace" asp-route-page="1">Birth Place</a>
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="BirthDate" asp-route-page="1">Birth Date</a>
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="Address" asp-route-page="1">Address</a>
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="Email" asp-route-page="1">Email</a>
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="Phone" asp-route-page="1">Phone</a>
+                            </th>
+                            <th>
+                                <a asp-action="AgenList" asp-route-sortOrder="IdCard" asp-route-page="1">ID Card</a>
+                            </th>
+                            <th>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var agen in Model)
+                        {
+                            <tr>
+                                <td>
+
+                                    <div class="dropdown">
+                                        <button type="button"
+                                                class="btn p-0 dropdown-toggle hide-arrow"
+                                                data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-action="Delete" asp-route-id="@agen.Id"><i class="bx bx-trash me-1"></i>Delete</a>
+                                            <a class="dropdown-item" asp-action="Details" asp-route-id="@agen.Id"><i class="bx bx-link-alt me-1"></i>Details</a>
+
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td>@agen.Id</td>
+                                <td>@agen.RegDate</td>
+                                <td>@agen.RegStatus</td>
+                                <td>@agen.Name</td>
+                                <td>@agen.Gender</td>
+                                <td>@agen.BirthPlace</td>
+                                <td>@agen.BirthDate</td>
+                                <td>@agen.Address</td>
+                                <td>@agen.Email</td>
+                                <td>@agen.Phone</td>
+                                <td>@agen.IdCard</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+          @*   <div class="d-flex justify-content-center">
+                Page @(Model.PageNumber) of @Model.PageCount
+                @Html.PagedListPager(Model, page => Url.Action("AgenList", new { page, currentFilter = ViewBag.CurrentFilter }), PagedListRenderOptions.TwitterBootstrapPager)
+            </div> *@
+        </div>
+    </div>
+</div>

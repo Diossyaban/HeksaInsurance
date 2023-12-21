@@ -1,0 +1,45 @@
+﻿@model Heksa.Models.Education
+
+@{
+    ViewData["Title"] = "Education Details";
+    Layout = "~/Views/Shared/Heksa_Layout.cshtml";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Education /</span> Details</h4>
+<div class="card mb-4">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-md-2">Education ID</dt>
+            <dd class="col-md-10">@Model.EducationId</dd>
+
+            <dt class="col-md-2">Strala</dt>
+            <dd class="col-md-10">@Model.Strala</dd>
+
+            <dt class="col-md-2">Institution</dt>
+            <dd class="col-md-10">@Model.Institution</dd>
+
+            <dt class="col-md-2">Major</dt>
+            <dd class="col-md-10">@Model.Major</dd>
+
+            <dt class="col-md-2">GPA</dt>
+            <dd class="col-md-10">@Model.Gpa</dd>
+
+            <dt class="col-md-2">Start Date</dt>
+            <dd class="col-md-10">@Model.StartDate</dd>
+
+            <dt class="col-md-2">End Date</dt>
+            <dd class="col-md-10">@Model.EndDate</dd>
+
+
+            <dt class="col-md-2">Create Date</dt>
+            <dd class="col-md-10">@Model.CreateDate</dd>
+
+            <dt class="col-md-2">Create By</dt>
+            <dd class="col-md-10">@Model.CreateBy</dd>
+        </dl>
+
+        <div class="text-end">
+            <a asp-action="Educations" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

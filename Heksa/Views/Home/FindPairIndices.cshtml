@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Find Pair Indices";
+    Layout = "~/Views/Shared/Heksa_Layout.cshtml";
+}
+
+<h2>Find Pair Indices</h2>
+
+<form asp-action="FindPairIndices" method="get">
+    <label for="target">Target:</label>
+    <input type="number" name="target" required />
+    <button type="submit">Find Pair Indices</button>
+</form>
+
+@if (ViewBag.Result != null)
+{
+    <div>
+        <h3>Result:</h3>
+        <p>@ViewBag.Result</p>
+    </div>
+}

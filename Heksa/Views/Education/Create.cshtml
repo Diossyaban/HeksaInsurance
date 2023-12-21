@@ -1,0 +1,69 @@
+﻿@model Heksa.Models.Education
+
+@{
+    ViewData["Title"] = "Create Education";
+    Layout = "~/Views/Shared/Heksa_Layout.cshtml";
+}
+
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Education /</span> Create Education</h4>
+<div class="card mb-4">
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div class="mb-3 row">
+                <label asp-for="Strala" class="col-md-2 col-form-label">Strala</label>
+                <div class="col-md-10">
+                    <input asp-for="Strala" class="form-control" />
+                    <span asp-validation-for="Strala" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label asp-for="Institution" class="col-md-2 col-form-label">Institution</label>
+                <div class="col-md-10">
+                    <input asp-for="Institution" class="form-control" />
+                    <span asp-validation-for="Institution" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label asp-for="Major" class="col-md-2 col-form-label">Major</label>
+                <div class="col-md-10">
+                    <input asp-for="Major" class="form-control" />
+                    <span asp-validation-for="Major" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label asp-for="Gpa" class="col-md-2 col-form-label">GPA</label>
+                <div class="col-md-10">
+                    <input asp-for="Gpa" class="form-control" />
+                    <span asp-validation-for="Gpa" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label asp-for="StartDate" class="col-md-2 col-form-label">Start Date</label>
+                <div class="col-md-10">
+                    <input asp-for="StartDate" class="form-control" type="date" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label asp-for="EndDate" class="col-md-2 col-form-label">End Date</label>
+                <div class="col-md-10">
+                    <input asp-for="EndDate" class="form-control" type="date" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="mb-3 row">
+                <div class="col-md-10 offset-md-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a asp-action="Educations" class="btn btn-secondary">Back</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
